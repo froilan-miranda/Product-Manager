@@ -69,3 +69,8 @@ fabric.properties
 
 # File System
 .DS_Store
+
+/target/
+/*/target/
+/*/*/target/
+target/
