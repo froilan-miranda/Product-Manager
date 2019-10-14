@@ -69,8 +69,21 @@ public class BeerServiceTest {
 
         Beer[] actualArray = beerService.findAll();
 
-        Assertions.assertEquals(newBeerA, actualArray[0]);
-        Assertions.assertEquals(newBeerB, actualArray[1]);
+        Assertions.assertEquals(actualArray.length, 2);
 
+    }
+
+    @Test
+    public void deleteTrueTest(){
+        Beer newBeerA = beerService.create("Harp", "Guiness", "Dublin, Ireland", 20, 10.00f);
+
+        Assertions.assertTrue(beerService.delete(newBeerA.getId()));
+    }
+
+    @Test
+    public void deleteFalseTest(){
+        Beer newBeerA = beerService.create("Harp", "Guiness", "Dublin, Ireland", 20, 10.00f);
+
+        Assertions.assertFalse(beerService.delete(Integer.MAX_VALUE));
     }
 }

@@ -1,28 +1,29 @@
 package services;
 
 import models.Beer;
+import models.Customer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class BeerService {
+public class CustomerService {
 
     private static int nextId = 1;
 
-    private ArrayList<Beer> inventory = new ArrayList<>();
+    private ArrayList<Customer> inventory = new ArrayList<>();
 
     //create
-    public Beer create(String name, String brand, String location, int quantity, float price) {
-        Beer createdBeer = new Beer(nextId++, name, brand, location, quantity, price);
-        inventory.add(createdBeer);
-        return createdBeer;
+    public Customer create(String name, String username, String password, String email) {
+        Customer customer = new Customer(nextId++, name, username, password, email);
+        inventory.add(customer);
+        return customer;
+
     }
 
     //read
-    public Beer findBeer(int readId) {
-        Beer output = null;
+    public Customer findBeer(int readId) {
+        Customer output = null;
 
-        for(Beer b : inventory)
+        for(Customer b : inventory)
             if (b.getId() == readId) {
                 output = b;
                 break;
@@ -32,8 +33,8 @@ public class BeerService {
     }
 
     //read all
-    public Beer[] findAll() {
-        return inventory.toArray(new Beer[inventory.size()]);
+    public Customer[] findAll() {
+        return inventory.toArray(new Customer[inventory.size()]);
     }
 
     //update
@@ -42,7 +43,7 @@ public class BeerService {
     public boolean delete(int id) {
         boolean isDeleted = false;
 
-        for(Beer b : inventory){
+        for(Customer b : inventory){
             if(b.getId() == id){
                 inventory.remove(b);
                 isDeleted = true;

@@ -6,6 +6,13 @@ public class Employee {
     private String username;
     private String password;
 
+    public Employee(int id, String name, String username, String password) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }
@@ -34,12 +41,4 @@ public class Employee {
         this.password = password;
     }
 
-    public Employee(int id, String name, String username, String password) {
-        this.id = id;
-        this.name = name;
-        this.username = username;
-        this.password = password;
-
-
-    }
 }
